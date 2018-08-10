@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+    link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
+    link(rel="icon" href="/favicon.ico" type="image/x-icon")
+    style
+      include /index.less
+    script(type='text/javascript')
+  body
+    h1 Pug - node template engine
+    #container.col
+      if youAreUsingPug
+        p You are amazing
+      else
+        p Get on it!
+      p.
+        Pug is a terse and simple templating language with a
+        strong focus on performance and powerful features.
+      each image in images
+        image(src=`/images/${image}` class="single-image")
+            
