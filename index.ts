@@ -6,7 +6,7 @@ import logger = require('koa-logger')
 import convert = require('koa-convert')
 import less = require('koa-less')
 
-import spider = require('./spider')
+// import spider = require('./spider')
 
 import router = require('./router')
 
@@ -38,7 +38,7 @@ app
     engine: 'pug',
     template: __dirname + '/pages/error.pug'
   }))
-  .use(convert(less(__dirname + '/pages/**/*.less1')))
+  .use(convert(less(__dirname + '/pages/**/*.less')))
   .use(serve(path.join(__dirname)))
 
 

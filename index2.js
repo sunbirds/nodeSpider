@@ -22,7 +22,9 @@ const start = () => {
         console.log(pageUrls);
         pageUrls.forEach(pageUrl => {
             superagent
+                // .get(pageUrl)
                 .get('http://gank.io/api/random/data/%E7%A6%8F%E5%88%A9/20')
+                // .set('header', header)
                 .proxy(proxy)
                 .end((err, res) => {
                 if (err) {

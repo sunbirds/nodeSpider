@@ -17,17 +17,17 @@ class spider {
         deadline: 60000, // but allow 1 minute for the file to finish loading.
       })
       .end((err, res)=> {
-        console.log(err)
+        // console.log(err)
         // console.log(res)
-        console.log(typeof res.text, res.text, ) //res.text.results
+        // console.log(typeof res.text, res.text, ) //res.text.results
         const {results = []} = JSON.parse(res.text) || {}
         // console.log(typeof results, results)
         results.forEach( (r,i) => {
           console.log(r.url)
           list.push(r.url)
-          // const writeFileStream = fs.createWriteStream(`./images/${r._id}.jpg`)
-          // const req = superagent.get(r.url).proxy(proxy)
-          // req.pipe(writeFileStream)
+          const writeFileStream = fs.createWriteStream(`./images/${r._id}.jpg`)
+          const req = superagent.get(r.url)
+          req.pipe(writeFileStream)
         })
       })
     }
